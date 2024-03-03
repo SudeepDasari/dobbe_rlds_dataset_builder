@@ -83,7 +83,7 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
                         'wrist_image': tfds.features.Image(
                             shape=(256, 256, 3),
                             dtype=np.uint8,
-                            encoding_format='png',
+                            encoding_format='jpeg',
                             doc='Stick wrist camera RGB observation.',
                         ),
                         'state': tfds.features.Tensor(
@@ -115,7 +115,7 @@ class ExampleDataset(tfds.core.GeneratorBasedBuilder):
                     'action': tfds.features.Tensor(
                         shape=(7,),
                         dtype=np.float32,
-                        doc='Stick action: [dx,dy,dz,droll,dptich,dyaw,dgripper]',
+                        doc='Stick action: [dx,dy,dz,droll,dptich,dyaw,gripper (absolute)]',
                     ),
                     'discount': tfds.features.Scalar(
                         dtype=np.float32,
